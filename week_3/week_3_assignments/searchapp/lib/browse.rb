@@ -1,10 +1,9 @@
-class HandleResults
+class Browse
   def call(env)
     request = Rack::Request.new(env)
-    query = request.GET["query"]
 
     catalog = ProductCatalog.new
-    products = catalog.find_all_by_keyword(query)
+    products = catalog.get_all
 
     content = ""
     products.each do |product|
