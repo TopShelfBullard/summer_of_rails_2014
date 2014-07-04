@@ -1,16 +1,33 @@
-not_done = true
+class Answer
+  attr_accessor :done, :number1, :number0
 
-while (not_done)
-  puts "Enter a number or a string, or enter nothing to quit: "
-  something = gets.chop
-  not_done = something != ""
-  message = not_done ? "You entered #{something}, which is a" : "We're done here."
-
-  if something.to_i.to_s == something
-    message += something.to_i % 2 == 0 ? "n even number." : "n odd number."
-  else
-    message += not_done ? " string." : ""
+  def self.number1(number)
+    return "#{number} is an odd number."
   end
 
-  puts message
+  def self.number0(number)
+    return "#{number} is an even number."
+  end
+
+  def self.done
+    "We're done."
+  end
+
+end
+
+while true
+  puts "Enter a number or a string, or enter nothing to quit: "
+  something = gets.chop
+
+  if something.to_i.to_s == something
+    puts Answer.send("number#{something.to_i % 2}", something.to_i)
+    redo
+  end
+
+  if Answer.respond_to?("done#{something}")
+    puts Answer.done
+    break
+  end
+
+  puts "#{something} is a string."
 end
