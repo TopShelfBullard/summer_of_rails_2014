@@ -6,9 +6,18 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
+<body>
+  <h1>Link List - <%= @title %></h1>
+  <br>
+  <nav>
+    <%=link_to_unless_current "Home", :controller=>"home", :action=>"index" %>
+    <%=link_to_unless_current "About", :controller=>"home", :action=>"about" %>
+    <%=link_to_unless_current "Links", links_url %>
+  </nav>
+  <br><hr>
+
+  <%= yield %>
 
 </body>
 </html>

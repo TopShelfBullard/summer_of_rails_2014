@@ -1,2 +1,11 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+  <% @links.each do |link| %>
+    <h3>Name: <%= link.name %></h3>
+    <blockquote>
+      URL: <%= link.url %>
+      <br>
+      Description: <%= link.description %>
+    </blockquote>
+    <br><hr>
+  <% end %>
+
+
