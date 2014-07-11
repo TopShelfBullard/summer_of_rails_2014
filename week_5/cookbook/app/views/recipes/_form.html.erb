@@ -13,17 +13,20 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title %> <%= @required_mark %>
   </div>
   <div class="field">
     <%= f.label :ingredients %><br>
-    <%= f.text_area :ingredients %>
+    <%= f.text_area :ingredients %> <%= @required_mark %>
   </div>
   <div class="field">
     <%= f.label :instructions %><br>
-    <%= f.text_area :instructions %>
+    <%= f.text_area :instructions %> <%= @required_mark %>
+    <p><%= @required_mark + @required_text %></p>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

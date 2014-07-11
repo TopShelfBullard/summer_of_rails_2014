@@ -18,11 +18,15 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @title = "Recipes"
+    @required_mark = "*"
+    @required_text = " required field"
   end
 
   # GET /recipes/1/edit
   def edit
     @title = "Recipes"
+    @required_mark = "*"
+    @required_text = " required field"
   end
 
   # POST /recipes
